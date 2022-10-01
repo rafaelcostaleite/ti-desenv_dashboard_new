@@ -1,0 +1,12 @@
+Comandos
+--------
+
+Ubuntu
+-------
+ssh -p 2200 rafel@localhost
+
+Git
+---
+git checkout -b dev
+git add .
+
