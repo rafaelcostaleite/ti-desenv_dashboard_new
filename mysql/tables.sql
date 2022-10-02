@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS incidentes_historico (
     incidente_sem_classificacao INT,
     incidente_sem_alocacao INT);
 
-SET default-authentication-plugin=mysql_native_password;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
 SET character-set-server=utf8mb4;
 SET collation-server=utf8mb4_unicode_ci;
 
