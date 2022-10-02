@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  mysql:
+    build:
+      context: ./mysql/
+      dockerfile: Dockerfile
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: sandbox
+        #MYSQL_USER: TEST
+        #MYSQL_PASSWORD: TEST
+    volumes:
+      - ./data-mysql:/var/lib/mysql
+    networks:
+      - webnet
