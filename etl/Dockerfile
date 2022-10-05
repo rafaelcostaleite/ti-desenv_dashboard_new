@@ -1,5 +1,6 @@
 FROM python:3
 
+#Workdir
 WORKDIR /app
 
 ADD requirements.txt .
