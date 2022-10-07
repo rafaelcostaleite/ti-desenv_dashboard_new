@@ -21,8 +21,8 @@ print("main.py - mysql")
 
 mydb = mysql.connector.connect(
   host="localhost",
-  user="yourusername",
-  password="yourpassword"
+  user="sandbox_user",
+  password="sand_boxpass"
 )
 
 print(mydb)
