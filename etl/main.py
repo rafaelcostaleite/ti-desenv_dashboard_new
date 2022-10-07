@@ -20,7 +20,7 @@ conn.close()
 print("main.py - mysql")
 
 mydb = mysql.connector.connect(
-  host="ti-desenv_dashboard_new_default",
+  host="dbmysql",
   user="sandbox_user",
   password="sand_boxpass"
 )
