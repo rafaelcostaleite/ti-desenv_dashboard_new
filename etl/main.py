@@ -20,7 +20,7 @@ conn.close()
 print("main.py - mysql")
 
 mydb = mysql.connector.connect(
-  host="mysql8",
+  host="db",
   user="sandbox_user",
   password="sand_boxpass"
 )
