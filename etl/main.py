@@ -6,9 +6,9 @@ from tcping import Ping
 
 # Ping(host, port, timeout)
 ping = Ping('127.0.0.1', 3306, 10)
-ping.ping(3)
+print(ping.ping(3))
 
-print("main.py - start")
+print("main.py - start1")
 
 config = configparser.ConfigParser()
 config.sections()
