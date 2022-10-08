@@ -23,9 +23,11 @@ services:
       - network1
   
   app:
+    build:
+      dockerfile: dockerfile
+      context: ./etl
     container_name: etl
     image: etl
-    build: ./etl
     networks:
       - network1
     links:
