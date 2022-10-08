@@ -27,10 +27,12 @@ services:
       context: ./etl
     #container_name: etl
     #image: etl
+    depends_on:
+      - "db"
     networks:
       - network1
     links:
-      - db
+      - "db"
 
 networks:
     network1:
