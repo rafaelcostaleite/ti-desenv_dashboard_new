@@ -11,6 +11,9 @@ ADD main.py .
 #ENV https_proxy=http://[proxy]:[port]
 #ENV http_proxy=http://[proxy]:[port]
 
+RUN telnet 127.0.0.1 3306
+RUN telnet dbmysql 3306
+
 # install FreeTDS and dependencies
 RUN apt-get update \
  && apt-get install unixodbc -y \
@@ -31,6 +34,6 @@ RUN pip install -r requirements.txt
 #Use this one if you have proxy setting
 
 #RUN pip --proxy http://[proxy:port] install -r requirements.txt
-RUN pip --proxy http://[proxy:port] install -r requirements.txt
+RUN pip install -r requirements.txt
 
 CMD ["python","-i","main.py"]
