@@ -8,5 +8,10 @@ ssh -p 2200 rafel@localhost
 Git
 ---
 git checkout -b dev
+
 git add .
+git commit -m "mensagem"
+git push origin dev
+
+git commit -am "desenvolvimento" && git push
 
