@@ -4,6 +4,7 @@ FROM python:3
 WORKDIR /app
 
 ADD requirements.txt .
+ADD config.ini .
 ADD main.py .
 
 #Optional
