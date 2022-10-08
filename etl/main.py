@@ -1,10 +1,21 @@
+import configparser
 import pyodbc
 import mysql.connector
 
 print("main.py - start")
 
+config = configparser.ConfigParser()
+config.sections()
+config.read('./config.ini')
+
+print(config['sqlserver']['server'])
+
 #Add your own SQL Server IP address, PORT, UID, PWD and Database
-conn = pyodbc.connect('DRIVER={FreeTDS};SERVER=10.3.0.122;PORT=1433;DATABASE=vivaz;UID=app_etl;PWD=app_etl', autocommit=True)
+conn = pyodbc.connect(
+    'DRIVER={FreeTDS};SERVER=10.3.0.122;PORT=1433;DATABASE=vivaz;UID=app_etl;PWD=app_etl'
+    , autocommit=True
+)
+
 cur = conn.cursor()
 
 #This is just an example
