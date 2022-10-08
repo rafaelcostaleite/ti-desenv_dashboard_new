@@ -25,7 +25,7 @@ services:
   app:
     container_name: etl
     image: etl
-    build: ./
+    build: ./etl
     networks:
       - network1
     links:
