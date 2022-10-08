@@ -8,11 +8,16 @@ config = configparser.ConfigParser()
 config.sections()
 config.read('./config.ini')
 
-print(config['sqlserver']['server'])
+#print(config['sqlserver']['server'])
 
 #Add your own SQL Server IP address, PORT, UID, PWD and Database
 conn = pyodbc.connect(
-    'DRIVER={FreeTDS};SERVER=10.3.0.122;PORT=1433;DATABASE=vivaz;UID=app_etl;PWD=app_etl'
+    #'DRIVER={FreeTDS};SERVER=10.3.0.122;PORT=1433;DATABASE=vivaz;UID=app_etl;PWD=app_etl'
+    'DRIVER={FreeTDS};SERVER='+config['sqlserver']['server']+';\
+        PORT='+config['sqlserver']['port']+';\
+            DATABASE='+config['sqlserver']['database']+';\
+                UID='+config['sqlserver']['login']+';\
+                    PWD='+config['sqlserver']['password']+''
     , autocommit=True
 )
 

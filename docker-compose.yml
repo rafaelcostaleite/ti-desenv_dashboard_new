@@ -21,6 +21,7 @@ services:
       - './docker/db/sql:/docker-entrypoint-initdb.d'
     networks:
       - appnet
+  
   app:
     container_name: etl
     image: etl
