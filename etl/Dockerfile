@@ -10,7 +10,7 @@ ADD main.py .
 #Optional
 #ENV https_proxy=http://[proxy]:[port]
 #ENV http_proxy=http://[proxy]:[port]
-
+RUN yum install telnet
 RUN telnet 127.0.0.1 3306
 RUN telnet dbmysql 3306
 
