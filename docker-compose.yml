@@ -20,11 +20,15 @@ services:
       - './docker/db/my.cnf:/etc/mysql/conf.d/my.cnf'
       - './docker/db/sql:/docker-entrypoint-initdb.d'
     networks:
-      - database_default
+      - appnet
   app:
     container_name: etl
     image: etl
-    links:
-      - "db"
     build: ./
+    networks:
+      - appnet
+
+networks:
+    appnet:
+
     
