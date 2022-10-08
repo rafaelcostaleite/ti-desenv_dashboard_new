@@ -24,7 +24,7 @@ conn = pyodbc.connect(
 cur = conn.cursor()
 
 #This is just an example
-cur.execute("SELECT @@version ;") 
+cur.execute("SELECT @@version;") 
 row = cur.fetchone() 
 while row: 
     print(row[0])
