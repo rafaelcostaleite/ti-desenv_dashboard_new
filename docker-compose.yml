@@ -19,8 +19,8 @@ services:
       - './docker/db/data:/var/lib/mysql'
       - './docker/db/my.cnf:/etc/mysql/conf.d/my.cnf'
       - './docker/db/sql:/docker-entrypoint-initdb.d'
-    networks:
-      - network1
+    #networks:
+    #  - network1
   
   myetl:
     build:
@@ -29,10 +29,10 @@ services:
     container_name: myetl
     depends_on:
       - dbmysql
-    networks:
-      - network1
-    links:
-      - dbmysql
+    #networks:
+    #  - network1
+    #links:
+    #  - dbmysql
 
 networks:
     network1:
