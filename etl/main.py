@@ -35,12 +35,8 @@ conn.close()
 
 print("main.py - mysql")
 
-mydb = mysql.connector.connect(
-  host=config['mysql']['host']
-  ,user=config['mysql']['user']
-  ,password="sand_boxpass"
-  #config['mysql']['password']
-)
+#mydb = mysql.connector.connect(host=config['mysql']['host'],user=config['mysql']['user'],password="sand_boxpass")
+mydb = mysql.connector.connect(host="dbmysql",user="sandbox_user",password="sand_boxpass")
 
 print(mydb)
 
