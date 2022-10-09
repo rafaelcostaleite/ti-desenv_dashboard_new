@@ -2,7 +2,7 @@ version: '3'
 
 services:
 
-  dbmysql:
+  db:
     container_name: dbmysql
     image: mysql:8.0
     command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
@@ -21,15 +21,15 @@ services:
     #networks:
     #  - network1
   
-  myetl:
+  etl:
     build:
       context: ./etl
-    image: myetl
+    image: mypython
     container_name: myetl
     depends_on:
-      - "dbmysql"
+      - "db"
     links:
-      - "dbmysql"
+      - "db"
     #networks:
     #  - network1
     
