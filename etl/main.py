@@ -2,7 +2,7 @@ import configparser
 import pyodbc
 import mysql.connector
 
-print("main.py - start1")
+print("main.py - start2")
 
 config = configparser.ConfigParser()
 config.sections()
