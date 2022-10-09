@@ -2,12 +2,6 @@ import configparser
 import pyodbc
 import mysql.connector
 
-from tcping import Ping
-
-# Ping(host, port, timeout)
-ping = Ping('127.0.0.1', 3306, 10)
-print(ping.ping(3))
-
 print("main.py - start1")
 
 config = configparser.ConfigParser()
