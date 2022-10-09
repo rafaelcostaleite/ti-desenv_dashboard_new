@@ -28,11 +28,11 @@ services:
     image: myetl
     container_name: myetl
     depends_on:
-      - "dbmysql"
+      - dbmysql
     networks:
       - network1
     links:
-      - "dbmysql"
+      - dbmysql
 
 networks:
     network1:

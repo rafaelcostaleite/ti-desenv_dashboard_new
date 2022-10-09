@@ -15,3 +15,10 @@ git push origin dev
 
 git commit -am "desenvolvimento" && git push
 
+sudo git pull origin dev -f
+
+Docker
+------
+docker system prune -a  
+docker compose up 
+
