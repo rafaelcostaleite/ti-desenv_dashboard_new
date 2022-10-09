@@ -2,7 +2,6 @@ version: '3'
 
 services:
 
-  #MySQL
   dbmysql:
     container_name: dbmysql
     image: mysql:8.0
@@ -34,7 +33,7 @@ services:
     #links:
     #  - dbmysql
 
-networks:
-    network1:
+#networks:
+#    network1:
 
     
