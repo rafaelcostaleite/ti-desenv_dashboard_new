@@ -36,7 +36,7 @@ conn.close()
 print("main.py - mysql")
 
 #mydb = mysql.connector.connect(host=config['mysql']['host'],user=config['mysql']['user'],password=config['mysql']['password'],port=3306)
-mydb = mysql.connector.connect(host = 'dbmysql', user = 'sandbox_user', password = 'sand_boxpass', port = 3306)
+mydb = mysql.connector.connect(host = 'db', user = 'sandbox_user', password = 'sand_boxpass', port = 3306)
 
 print(mydb)
 
