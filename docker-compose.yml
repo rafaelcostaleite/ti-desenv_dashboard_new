@@ -2,7 +2,6 @@ version: '3'
 
 services:
 
-  #MySQL
   db:
     container_name: dbmysql
     image: mysql:8.0
@@ -19,16 +18,22 @@ services:
       - './docker/db/data:/var/lib/mysql'
       - './docker/db/my.cnf:/etc/mysql/conf.d/my.cnf'
       - './docker/db/sql:/docker-entrypoint-initdb.d'
-    networks:
-      - appnet
-  app:
-    container_name: etl
-    image: etl
-    build: ./
-    networks:
-      - appnet
-
-networks:
-    appnet:
+    #networks:
+    #  - network1
+  
+  etl:
+    build:
+      context: ./etl
+    image: mypython
+    container_name: myetl
+    depends_on:
+      - "db"
+    links:
+      - "db"
+    #networks:
+    #  - network1
+    
+#networks:
+#    network1:
 
     

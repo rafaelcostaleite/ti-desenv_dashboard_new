@@ -4,6 +4,7 @@ FROM python:3
 WORKDIR /app
 
 ADD requirements.txt .
+ADD config.ini .
 ADD main.py .
 
 #Optional
@@ -30,6 +31,6 @@ RUN pip install -r requirements.txt
 #Use this one if you have proxy setting
 
 #RUN pip --proxy http://[proxy:port] install -r requirements.txt
-RUN pip --proxy http://[proxy:port] install -r requirements.txt
+RUN pip install -r requirements.txt
 
 CMD ["python","-i","main.py"]
