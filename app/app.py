@@ -12,7 +12,7 @@ server = app.server
 data = pd.DataFrame(
     {
         "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
-        "Amount": [4, 1, 2, 2, 4, 5],
+        "Amount": [4, 1, 3, 2, 4, 5],
         "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"],
     }
 )
@@ -22,7 +22,7 @@ graph = px.bar(data, x="Fruit", y="Amount", color="City", barmode="group")
 app.layout = html.Div(
     children=[
         html.H1(
-            children=f"Hello Dash in 2022 from {'Dev Server' if debug else 'Prod Server'}"
+            children=f"Dashboard TI {'Dev Server' if debug else 'Prod Server'}"
         ),
         html.Div(children="""Dash: A web application framework for your data."""),
         dcc.Graph(id="example-graph", figure=graph),
