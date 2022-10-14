@@ -9,15 +9,20 @@ app = Dash(__name__)
 
 server = app.server
 
-data = pd.DataFrame(
-    {
-        "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
-        "Amount": [4, 1, 3, 2, 4, 5],
-        "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"],
-    }
-)
+#data = pd.DataFrame(
+#    {
+#        "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
+#        "Amount": [4, 1, 3, 2, 4, 5],
+#        "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"],
+#    }
+#)
+#
+#graph = px.bar(data, x="Fruit", y="Amount", color="City", barmode="group")
 
-graph = px.bar(data, x="Fruit", y="Amount", color="City", barmode="group")
+df = px.data.stocks()
+graph = px.line(df, x="date", y=df.columns,
+              hover_data={"date": "|%B %d, %Y"},
+              title='custom tick labels')
 
 app.layout = html.Div(
     children=[
