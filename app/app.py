@@ -28,15 +28,19 @@ connstr = f"{USERNAME}/{PASSWORD}@{HOST}:{PORT}/{SERVICE}"
 conn = cx_Oracle.connect(connstr)
 
 #Criando um cursor
-cursor = conn.cursor()
+#cursor = conn.cursor()
 
 #Rodando uma Query para teste
-cursor.execute("select * from global_name")
-result = cursor.fetchall()
-for row in result:
-    print('Resultado do select')
-    print(result)
+#cursor.execute("select * from sch_ods.ti_incidentes_historico")
+#result = cursor.fetchall()
+#for row in result:
+#    print('Resultado do select')
+#    print(result)
 
+df_ora = pd.read_sql("select * from sch_ods.ti_incidentes_historico", con=conn)
+
+print('Resultado do sch_ods')
+print(df_ora)
 ###
 
 app = Dash(__name__)
@@ -61,7 +65,7 @@ graph = px.line(df, x="date", y=df.columns,
 app.layout = html.Div(
     children=[
         html.H1(
-            children=f"Dashboard TI {'Dev Server' if debug else 'Prod Server 1'}"
+            children=f"Dashboard TI {'Dev Server' if debug else 'Prod Server 3'}"
         ),
         html.Div(children="""Dash: A web application framework for your data."""),
         dcc.Graph(id="example-graph", figure=graph),
