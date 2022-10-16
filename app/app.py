@@ -54,8 +54,9 @@ server = app.server
 #
 #graph = px.bar(data, x="Fruit", y="Amount", color="City", barmode="group")
 
-df = px.data.stocks()
-graph = px.line(df1, x="DATA", y=df.columns,
+#df = px.data.stocks()
+
+graph = px.line(df1, x="DATA", y=df1.columns,
               hover_data={"DATA": "|%B %d, %Y"},
               title='Histórico de incidentes')
 
