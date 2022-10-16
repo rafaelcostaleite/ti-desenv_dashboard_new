@@ -27,7 +27,7 @@ graph = px.line(df, x="date", y=df.columns,
 app.layout = html.Div(
     children=[
         html.H1(
-            children=f"Dashboard TI {'Dev Server' if debug else 'Prod Server'}"
+            children=f"Dashboard TI {'Dev Server' if debug else 'Prod Server 1'}"
         ),
         html.Div(children="""Dash: A web application framework for your data."""),
         dcc.Graph(id="example-graph", figure=graph),
