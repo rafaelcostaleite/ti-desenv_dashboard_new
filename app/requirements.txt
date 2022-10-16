@@ -2,3 +2,4 @@ dash
 plotly
 pandas
 gunicorn
+cx_Oracle==7.3.0
