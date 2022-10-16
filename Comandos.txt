@@ -22,3 +22,6 @@ Docker
 docker system prune -a  
 docker compose up 
 
+docker build -f Dockerfile -t docker-dash-example-prod .
+docker run -p 8050:8050 -v "$(pwd)"/app:/app --rm docker-dash-example-prod
+
