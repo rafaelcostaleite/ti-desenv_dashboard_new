@@ -21,7 +21,6 @@ PORT = '1245' #os.getenv('DB_PORT')
 SERVICE = 'jaspe' #os.getenv('DB_SERVICE')
 
 #Criando a string de conexão
-
 connstr = f"{USERNAME}/{PASSWORD}@{HOST}:{PORT}/{SERVICE}"
 
 #Conectando ao SGBD
@@ -37,10 +36,8 @@ conn = cx_Oracle.connect(connstr)
 #    print('Resultado do select')
 #    print(result)
 
-df_ora = pd.read_sql("select * from sch_ods.ti_incidentes_historico", con=conn)
+df1 = pd.read_sql("select * from sch_ods.ti_incidentes_historico", con=conn)
 
-print('Resultado do sch_ods')
-print(df_ora)
 ###
 
 app = Dash(__name__)
@@ -58,14 +55,14 @@ server = app.server
 #graph = px.bar(data, x="Fruit", y="Amount", color="City", barmode="group")
 
 df = px.data.stocks()
-graph = px.line(df, x="date", y=df.columns,
+graph = px.line(df1, x="date", y=df.columns,
               hover_data={"date": "|%B %d, %Y"},
-              title='custom tick labels')
+              title='Histórico de incidentes')
 
 app.layout = html.Div(
     children=[
         html.H1(
-            children=f"Dashboard TI {'Dev Server' if debug else 'Prod Server 3'}"
+            children=f"Dashboard TI {'Dev Server' if debug else 'Prod Server 4'}"
         ),
         html.Div(children="""Dash: A web application framework for your data."""),
         dcc.Graph(id="example-graph", figure=graph),
