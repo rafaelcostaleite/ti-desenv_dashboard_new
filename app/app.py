@@ -2,8 +2,42 @@ import os
 from dash import Dash, html, dcc
 import plotly.express as px
 import pandas as pd
+import cx_Oracle
 
 debug = False if os.environ["DASH_DEBUG_MODE"] == "False" else True
+
+###
+
+#Configurações de conexão
+DIALECT = 'oracle'
+SQL_DRIVER = 'cx_oracle'
+
+#Pegando as credenciais via variável de ambiente
+
+USERNAME = 'dba_egk' #os.getenv('DB_USER')
+PASSWORD = 'dba_egk' #os.getenv('DB_PASSWORD')
+HOST = '10.3.0.105' #os.getenv('DB_HOST')
+PORT = '1245' #os.getenv('DB_PORT')
+SERVICE = 'jaspe' #os.getenv('DB_SERVICE')
+
+#Criando a string de conexão
+
+connstr = f"{USERNAME}/{PASSWORD}@{HOST}:{PORT}/{SERVICE}"
+
+#Conectando ao SGBD
+conn = cx_Oracle.connect(connstr)
+
+#Criando um cursor
+cursor = conn.cursor()
+
+#Rodando uma Query para teste
+cursor.execute("select * from global_name")
+result = cursor.fetchall()
+for row in result:
+    print('Resultado do select')
+    print(result)
+
+###
 
 app = Dash(__name__)
 
