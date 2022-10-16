@@ -3,6 +3,8 @@ FROM python:3.10
 #Atualizando e instalando o alien
 RUN apt-get update -y && apt-get install alien -y
 
+COPY ./ /app
+
 WORKDIR /app
 
 #RUN set -ex && \
