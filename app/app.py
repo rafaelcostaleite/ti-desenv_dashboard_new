@@ -56,7 +56,7 @@ server = app.server
 
 df = px.data.stocks()
 graph = px.line(df1, x="data", y=df.columns,
-              hover_data={"date": "|%B %d, %Y"},
+              hover_data={"data": "|%B %d, %Y"},
               title='Histórico de incidentes')
 
 app.layout = html.Div(
